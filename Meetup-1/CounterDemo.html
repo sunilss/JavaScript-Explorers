@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+</head>
+<body>
+	<input type="button" value="Count" id="btnCount">
+	<div id="divMessage"></div>
+	<script>
+	(function(){
+		var counter = 0;
+		document.getElementById("btnCount").onclick = function(){
+			counter++;
+			document.getElementById("divMessage").innerHTML = counter;
+		}
+	})();
+	</script>
+</body>
+</html>

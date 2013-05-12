@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Salary Calculator</title>
+	<style>
+	.overTaxed {
+		color : red;
+	}
+	.underTaxed{
+		color : green;
+	}
+	</style>
+	<script src="jquery-1.8.3.js"></script>
+	<script src="salaryCalculatorModel.js"></script>
+	<script src="SalaryCalculatorView.js"></script>
+
+	<script>
+		
+		$(function(){
+			var calculator = new SalaryCalculator();
+			var view = new SalaryCalculatorView("#salaryCalculatorTemplate");
+			view.initialize(calculator) ;
+			$(document.body).append(view.render().$root);
+			window.$r = view.$root;
+			
+		});;
+	</script>
+	<script type="text/template" id="salaryCalculatorTemplate">
+		<div><span>Basic :</span><input type="text" name="" id="txtBasic"></div>
+		<div><span>HRA :</span><input type="text" name="" id="txtHra"></div>
+		<div><span>DA :</span><input type="text" name="" id="txtDa"></div>
+		<div><span>Tax :</span><input type="range" value="10" id="rangeTax" min="0" max="100"><span id="spanTax">[Tax]</span></div>
+		<div><span id="spanSalary"></span></div>
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

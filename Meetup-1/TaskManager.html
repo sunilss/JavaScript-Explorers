@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task Manager</title>
+	<style>
+		.completed {
+			font-style: italic;
+			text-decoration: line-through;
+			color : red;
+		}
+	</style>
+	<script>
+	(function(){
+		document.addEventListener("DOMContentLoaded",function(){
+			attachEvents();
+		});
+		function attachEvents(){
+			document.getElementById("btnAddTask").addEventListener('click',onButtonAddTaskClick);
+			document.getElementById("btnRemoveCompleted").addEventListener('click',onBtnRemoveCompletedClick);
+		}
+		function onButtonAddTaskClick(){
+			var taskName = document.getElementById("txtTask").value;
+			var newTaskItem = document.createElement("li");
+			newTaskItem.innerText = taskName;
+			newTaskItem.addEventListener('click',onTaskItemClick);
+
+			document.getElementById("ulTaskList").appendChild(newTaskItem);
+		}
+
+		function onTaskItemClick(){
+			if (this.classList.contains("completed")){
+				this.classList.remove("completed")
+			} else {
+				this.classList.add("completed");
+			}
+		};
+
+		function onBtnRemoveCompletedClick(){
+			var completedTasks = document.querySelectorAll("#ulTaskList > li.completed");
+			 var taskList = document.getElementById("ulTaskList");
+			for(var i=0;i<completedTasks.length;i++){
+				ulTaskList.removeChild(completedTasks[i]);
+			}
+		}
+	})();
+	</script>
+</head>
+<body>
+	<h1>Task Manager</h1>
+	<span>Task :</span>
+	<input type="text" name="" id="txtTask">
+	<input type="button" value="Add Task" id="btnAddTask">
+	<input type="button" value="Remove Completed" id="btnRemoveCompleted">
+	<ul id="ulTaskList"></ul>
+</body>
+</html>
