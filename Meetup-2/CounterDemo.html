@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Counter</title>
+
+</head>
+<body>
+	<input type="button" value="Count" id="btnCount">
+	<div id="divResult"></div>
+	<script>
+	var inner = getCounter();
+	document.getElementById("btnCount").addEventListener("click",inner);
+
+	function getCounter(initial){
+		var counter  = initial;
+		return function(){
+			counter++;
+			document.getElementById("divResult").innerHTML = counter;
+		}
+	}
+
+	</script>
+</body>
+</html>

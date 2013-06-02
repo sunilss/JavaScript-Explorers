@@ -15,10 +15,12 @@
 		document.addEventListener("DOMContentLoaded",function(){
 			attachEvents();
 		});
+
 		function attachEvents(){
 			document.getElementById("btnAddTask").addEventListener('click',onButtonAddTaskClick);
 			document.getElementById("btnRemoveCompleted").addEventListener('click',onBtnRemoveCompletedClick);
 		}
+
 		function onButtonAddTaskClick(){
 			var taskName = document.getElementById("txtTask").value;
 			var newTaskItem = document.createElement("li");
@@ -43,6 +45,7 @@
 				ulTaskList.removeChild(completedTasks[i]);
 			}
 		}
+		
 	})();
 	</script>
 </head>
